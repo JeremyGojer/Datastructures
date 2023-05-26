@@ -40,7 +40,11 @@ public class Day2 {
 		//rotateFromK(ll, 2);
 		//System.out.println(search(ll, 80));
 		System.out.println(ll);
-		
+		int [] arr= new int[] {1,2,3,4,5,6,7,8};
+		condSwap(arr, 3); 
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 	
 	public static int length(SinglyLinkedList ll) {
@@ -157,6 +161,22 @@ public class Day2 {
 			it2=it2.getNext();
 		}
 		return true;
+	}
+	
+	public static void condSwap(int [] arr,int k) {
+		
+		for (int i = 0; i < k/2; i++) {
+			int temp = arr[i];
+			arr[i] = arr[k-2-i];
+			arr[k-2-i] = temp;
+		}
+		for (int i = 0; i < (arr.length-k)/2; i++) {
+
+			int temp = arr[i+k];
+			arr[i+k] = arr[arr.length-1];
+			arr[arr.length-1] = temp;
+
+		}
 	}
 	
 	public static void insertSorted(SinglyLinkedList ll,int data) {

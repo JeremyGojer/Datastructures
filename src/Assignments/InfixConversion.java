@@ -8,7 +8,7 @@ public class InfixConversion {
 	public static void main(String[] args) {
 
 		String exp = "(2+3)*(7-2)+6";
-		//String exp2 = "7+2-6+5*3";
+		//String exp = "7-9*8";
 		System.out.println(postfix(exp));
 		System.out.println(solvePostfix(postfix(exp)));
 		System.out.println(prefix(exp));
@@ -112,13 +112,14 @@ public class InfixConversion {
 	public static int precedence(char a) {
 
 		switch(a) {
-
 		case '+':return 1;
 		case '-':return 1;
 		case '*':return 2;
 		case '/':return 2;
-		case '(':return 3;
-		case ')':return 3;
+		case '!':return 3;
+		case '(':return 4;
+		case ')':return 4;
+		case '^':return 5;
 		}
 		return 999;
 	}

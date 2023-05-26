@@ -11,7 +11,6 @@ public class InfixConversion {
 		//String exp2 = "7+2-6+5*3";
 		System.out.println(postfix(exp));
 		System.out.println(solvePostfix(postfix(exp)));
-		//System.out.println(solvePostfix("231*+9-"));
 		System.out.println(prefix(exp));
 		System.out.println(solvePrefix(prefix(exp)));
 	}
@@ -27,7 +26,7 @@ public class InfixConversion {
 				ret += c;
 			}
 			else {
-				if(c==')') {
+				if(c==')') { //closing bracket found pop everything until opening bracket occurs  
 					while(!st.isEmpty() && st.peek()!='(') {
 						ret += st.pop();
 					}
@@ -78,14 +77,14 @@ public class InfixConversion {
 					while(!st.isEmpty() && st.peek()!=')') {
 						ret += st.pop();
 					}
-					st.pop(); //Removes '('
+					st.pop(); //Removes ')'
 				}
 				else if(st.isEmpty() || precedence(c)>precedence(st.peek())) {
 					st.push(c); //pushes higher precedence operator in stack
 				}
 				else {
 					if(st.peek()==')') {
-						//every operator is to ignore precedence of '(' until ')' occurs
+						//every operator is to ignore precedence of ')' until '(' occurs
 					}
 					else {
 						// if lower precedence operator occurs pop everything until the precedence of operator at peek is lower

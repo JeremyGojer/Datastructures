@@ -3,17 +3,17 @@ package com.sort;
 public class Test {
 
 	public static void main(String[] args) {
-		int [] arr = new int[] {2,5,1,58,45,96,41,3,4,21,84,1484,7};
-		int [] arr2 = new int[] {21,45,58,84,96,1484,1,2,3,5,7,41};
-		showArray(arr2);
+		int [] arr = new int[] {2,5,1,58,45,96,41,3,4,21,84,1484,7,57};
+		int [] arr2 = new int[] {84,96,1484,21,45,58,1,2,3,5,7,41};
+		int [] arrt = new int[] {2,4,7,1,3,6,8};
+		showArray(arr);
 		//bubbleSort(arr);
 		//insertionSort(arr);
 		//selectionSort(arr);
 		//quickSort(arr);
-		join(arr2,0,arr2.length);
-		showArray(arr2);
-		//joinarr();
-		
+		mergeSort(arr);
+
+		showArray(arr);
 	}
 	
 	public static void bubbleSort(int [] arr) {
@@ -103,53 +103,11 @@ public class Test {
 
 	private static void MergeSort(int[] arr, int low, int high) {
 		int mid= (low+high)/2;
-		if(low<high) {
+		if(low<high-1) {
 			MergeSort(arr, low, mid);
-			MergeSort(arr, mid+1, high);
-			join(arr,low,high);
+			MergeSort(arr, mid, high);
+			join(arr,low,mid,high);
 		}
-		
-	}
-
-	public static void join(int[] arr, int low, int high) {
-		int mid = (low+high)/2;
-		int i=low;
-		int j=mid;
-		
-		int k=low;
-		for (k = 0; k < high; k++) {
-			if(arr[i]<arr[j]) {
-				int temp = arr[k];
-				arr[k] = arr[i];
-				arr[i] = temp;
-				i++;
-			}
-			else {
-				int temp = arr[k];
-				arr[k] = arr[j];
-				arr[j] = temp;
-				j++;
-			}
-			if(j==high || i==mid) {
-				break;
-			}
-		}
-		k++;
-		while(j<high) {
-			int temp = arr[k];
-			arr[k] = arr[j];
-			arr[j] = temp;
-			j++;
-			k++;
-		}
-		while(i<mid) {
-			int temp = arr[k];
-			arr[k] = arr[i];
-			arr[i] = temp;
-			i++;
-			k++;
-		}
-		showArray(arr);
 	}
 	
 	public static void joinarr() {
@@ -184,5 +142,39 @@ public class Test {
 		}
 		showArray(arr);
 		
+	}
+	
+	
+	public static void join(int [] arr,int low,int mid,int high) {
+		int [] temp = new int[arr.length];
+		int i=low,j=mid,k=high;
+
+		for (k = low; k < high; k++) {
+			if(arr[i]<arr[j]) {
+				temp[k] = arr[i];
+				i++;
+			}
+			else {
+				temp[k] = arr[j];
+				j++;
+			}
+			if(j==high || i==mid) {
+				break;
+			}
+		}
+		k++;
+		while(j<high && k<high) {
+			temp[k] = arr[j];
+			j++;
+			k++;
+		}
+		while(i<mid && k<high) {
+			temp[k] = arr[i];
+			i++;
+			k++;
+		}
+		for (int k2 = low; k2 < high; k2++) {
+			arr[k2] = temp[k2];
+		}
 	}
 }

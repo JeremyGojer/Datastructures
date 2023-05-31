@@ -1,0 +1,12 @@
+package com.tree.binarysearchtree;
+
+public class Test {
+
+	public static void main(String[] args) {
+		BST bst = new BST();
+		
+		bst.insert(25);
+
+	}
+
+}

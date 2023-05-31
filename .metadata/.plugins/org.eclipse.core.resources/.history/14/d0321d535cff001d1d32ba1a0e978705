@@ -1,0 +1,26 @@
+package com.tree.binarysearchtree;
+
+public class BST {
+	
+	Node root;
+	
+	public BST() {
+		root = null;
+	}
+	
+	public void insert(int data) {
+		Node temp = new Node(data);
+		if(root==null) {
+			root = temp;
+		}
+		else {
+			root = _insert(data,root); 
+		}
+	}
+
+	private Node _insert(int data, Node it) {
+		if()
+		return null;
+	}
+	
+}

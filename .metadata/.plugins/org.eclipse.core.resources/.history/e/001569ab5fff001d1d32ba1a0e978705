@@ -1,0 +1,80 @@
+package com.tree.binarysearchtree;
+
+public class BST {
+	
+	Node root;
+	
+	public BST() {
+		root = null;
+	}
+	
+	//uses recursion
+	public void insert(int data) {
+		if(root==null) {
+			Node temp = new Node(data);
+			root = temp;
+		}
+		else {
+			root = _insert(data,root); 
+		}
+	}
+
+	private Node _insert(int data, Node it) {
+		if(it!=null) {
+			if(it.getData()>data) {
+				it.setLeft(_insert(data,it.getLeft()));
+			}
+			else {
+				it.setRight(_insert(data,it.getRight()));
+			}
+		}
+		else {
+			Node temp = new Node(data);
+			it = temp;
+		}
+		return it;
+	}
+	
+	public void inorder() {
+		_inorder(root);
+		System.out.println();
+	}
+	
+	private void _inorder(Node it) {
+		if(it!=null) {
+			_inorder(it.getLeft());
+			System.out.print(it.getData()+" ");
+			_inorder(it.getRight());
+		}
+	}
+	
+	public void preorder() {
+		_preorder(root);
+		System.out.println();
+	}
+
+	private void _preorder(Node it) {
+		if(it!=null) {
+			System.out.print(it.getData()+" ");
+			_preorder(it.getLeft());
+			_preorder(it.getRight());
+		}
+	}
+	
+	public void postorder() {
+		_postorder(root);
+		System.out.println();
+	}
+
+	private void _postorder(Node it) {
+		if(it!=null) {
+			_postorder(it.getLeft());
+			_postorder(it.getRight());
+			System.out.print(it.getData()+" ");
+		}
+	}
+	
+	public void BFS() {
+		Node it = root;
+	}
+}

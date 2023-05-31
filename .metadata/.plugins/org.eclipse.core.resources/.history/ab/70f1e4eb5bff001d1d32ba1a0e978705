@@ -1,0 +1,8 @@
+package com.tree.binarysearchtree;
+
+public class BST {
+	
+	Node root;
+	
+	
+}

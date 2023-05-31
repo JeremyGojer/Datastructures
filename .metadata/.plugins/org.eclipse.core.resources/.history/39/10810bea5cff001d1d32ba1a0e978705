@@ -1,0 +1,43 @@
+package com.tree.binarysearchtree;
+
+public class BST {
+	
+	Node root;
+	
+	public BST() {
+		root = null;
+	}
+	
+	//uses recursion
+	public void insert(int data) {
+		if(root==null) {
+			Node temp = new Node(data);
+			root = temp;
+		}
+		else {
+			root = _insert(data,root); 
+		}
+	}
+
+	private Node _insert(int data, Node it) {
+		if(it!=null) {
+			if(it.getData()<data) {
+				it = _insert(data,it.getLeft());
+			}
+			else {
+				it = _insert(data,it.getRight());
+			}
+		}
+		else {
+			Node temp = new Node(data);
+			it = temp;
+		}
+		return null;
+	}
+	
+	public void inorder(Node it) {
+		if(it!=null) {
+			it=it
+		}
+	}
+}

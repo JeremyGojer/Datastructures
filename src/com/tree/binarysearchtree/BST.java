@@ -1,6 +1,7 @@
 package com.tree.binarysearchtree;
 
 import com.linkedlist.queue.Queue;
+import com.linkedlist.stack.Stack;
 
 public class BST {
 	
@@ -44,6 +45,30 @@ public class BST {
 		}
 		else {
 			System.out.println("Tree is empty");
+		}
+		
+	}
+	public void inorderr() {
+		if(root==null) {
+			System.out.println("Tree is empty");
+		}
+		else {
+			Node it = root;
+			Stack<Node> stk = new Stack<>();
+			stk.push(it);
+			while(!stk.isEmpty()) {
+				while(it.getLeft()!=null) {
+					stk.push(it.getLeft());
+					it = it.getLeft();
+				}
+				Node t = stk.pop();
+				System.out.print(t.getData()+" ");
+				if(t.getRight()!=null) {
+					stk.push(t.getRight());
+					it = t.getRight();
+				}
+			}
+			System.out.println();
 		}
 		
 	}

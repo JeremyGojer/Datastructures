@@ -16,12 +16,13 @@ public class Test {
 		bst.insert(95);
 		
 		bst.inorder();
+		bst.inorderr();
 //		bst.preorder();
 //		bst.postorder();
 //		bst.BFS();
-		bst.delete(75);
-		System.out.println("After deletion");
-		bst.inorder();
+//		bst.delete(75);
+//		System.out.println("After deletion");
+//		bst.inorder();
 	}
 
 }

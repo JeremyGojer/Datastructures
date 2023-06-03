@@ -145,8 +145,7 @@ public class Test {
 		showArray(arr);
 		
 	}
-	
-	
+		
 	public static void join(int [] arr,int low,int mid,int high) {
 		int [] temp = new int[arr.length];
 		int i=low,j=mid,k=high;
@@ -215,6 +214,7 @@ public class Test {
 				max=arr[i];
 			}
 		}
+	
 		int [] temp = new int[max+1];
 		for (int i = 0; i < arr.length; i++) {
 			temp[arr[i]]++;

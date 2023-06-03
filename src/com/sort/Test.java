@@ -11,7 +11,8 @@ public class Test {
 		//insertionSort(arr);
 		//selectionSort(arr);
 		//quickSort(arr);
-		mergeSort(arr);
+		//mergeSort(arr);
+		heapSort(arr);
 
 		showArray(arr);
 	}
@@ -176,5 +177,33 @@ public class Test {
 		for (int k2 = low; k2 < high; k2++) {
 			arr[k2] = temp[k2];
 		}
+	}
+	
+	public static  void heapSort(int [] arr) {
+		for(int i=arr.length;i>0;i--) {
+			heapify(arr, i, 0);
+			int temp = arr[i-1];
+			arr[i-1] = arr[0];
+			arr[0] = temp;
+		}
+	}
+	
+	public static void heapify(int[] arr,int n,int i) {
+		int a = (2*i)+1;
+		int b = (2*i)+2;
+		if(b<n) {
+			heapify(arr,n,a);
+			heapify(arr,n,b);
+		}
+		int large = i;
+		if(a<n && arr[large]<arr[a]) {
+			large = a;
+		}
+		if(b<n && arr[large]<arr[b]) {
+			large = b;
+		}
+		int temp = arr[i];
+		arr[i] = arr[large];
+		arr[large] = temp;
 	}
 }

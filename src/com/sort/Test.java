@@ -12,7 +12,8 @@ public class Test {
 		//selectionSort(arr);
 		//quickSort(arr);
 		//mergeSort(arr);
-		heapSort(arr);
+		//heapSort(arr);
+		bucketSort(arr);
 
 		showArray(arr);
 	}
@@ -205,5 +206,25 @@ public class Test {
 		int temp = arr[i];
 		arr[i] = arr[large];
 		arr[large] = temp;
+	}
+	
+	public static void bucketSort(int [] arr) {
+		int max=arr[0];
+		for (int i = 0; i < arr.length; i++) {
+			if(max<arr[i]) {
+				max=arr[i];
+			}
+		}
+		int [] temp = new int[max+1];
+		for (int i = 0; i < arr.length; i++) {
+			temp[arr[i]]++;
+		}
+		int p=0;
+		for (int i = 0; i < temp.length; i++) {
+			while(temp[i]!=0) {
+				arr[p++]=i;
+				temp[i]--;
+			}
+		}
 	}
 }
